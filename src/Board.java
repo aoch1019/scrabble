@@ -44,10 +44,40 @@ public class Board {
 		}
 	}
 	
+	public void printBoardWithCoordinates() {
+		System.out.println();
+		System.out.print("     ");
+		for(int i = 0; i < 15; i++) {
+			if(i < 10) {
+				System.out.print(" " + i + "   ");	
+			}
+			else {
+				System.out.print(i + "   ");	
+			}
+		}
+		System.out.println("");
+		System.out.println("    ---------------------------------------------------------------------------");
+		int row = 0;
+		for(Square[] sqArr : board) {
+			if(row < 10) {
+				System.out.print(" " + row + " | ");				
+			}
+			else {
+				System.out.print(row + " | ");
+			}
+			row++;
+			for(Square sq : sqArr) {
+				System.out.print(sq.getSquareString() + " | ");
+			}
+			System.out.println("");
+			System.out.println("    ---------------------------------------------------------------------------");
+		}
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Board b = new Board();
-		b.printBoard();
+		b.printBoardWithCoordinates();
 	}
 
 }

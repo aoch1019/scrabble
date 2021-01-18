@@ -19,7 +19,7 @@ public class Game {
 	}
 	
 	void displayGame() {
-		board.printBoard();
+		board.printBoardWithCoordinates();
 		for(Player p : players) {
 			p.printTiles();
 		}
