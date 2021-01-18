@@ -73,6 +73,10 @@ public class Bag {
 		tiles.remove(t);
 	}
 	
+	public int tilesLeft() {
+		return tiles.size();
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Bag b = new Bag();
