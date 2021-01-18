@@ -27,6 +27,10 @@ public class Game {
 		System.out.println("\nThe bag has " + bag.tilesLeft() + " tiles remaining");
 	}
 	
+	void makeAMove() {
+		
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		String[] playerNames = {"Andrew", "Ali", "Josh"};
