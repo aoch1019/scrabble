@@ -34,9 +34,20 @@ public class Board {
 		}
 	}
 	
+	public void printBoard() {
+		for(Square[] sqArr : board) {
+			for(Square sq : sqArr) {
+				System.out.print(sq.getSquareString() + " | ");
+			}
+			System.out.println("");
+			System.out.println("--------------------------------------------------------------------------");
+		}
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
+		Board b = new Board();
+		b.printBoard();
 	}
 
 }

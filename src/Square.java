@@ -31,21 +31,34 @@ public class Square {
 	}
 
 	/**
+	 * Returns the squares tile if it has one. Otherwise, it returns the squares multiplier.
+	 * @return The squares tile if it has one. Otherwise, it returns the squares multiplier.
+	 */
+	public String getSquareString() {
+		if(this.tile != null) {
+			return tile.getLetter() + "";
+		}
+		else {
+			return getMultiplierString();
+		}
+	}
+	
+	/**
 	 * Gets a String representation of the Square's multiplier.
 	 * @return
 	 */
 	public String getMultiplierString() {
 		switch(this.multiplier){
 			case 1:
-				return "Double Letter";
+				return "DL";
 			case 2:
-				return "Triple Letter";
+				return "TL";
 			case 3:
-				return "Double Word";		
+				return "DW";		
 			case 4:
-				return "Triple Word";	
+				return "TW";	
 			default:
-				return "";
+				return "  ";
 		}
 	}
 
