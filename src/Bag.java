@@ -43,16 +43,44 @@ public class Bag {
 		}
 	}
 	
+	public ArrayList<Tile> getTiles() {
+		return tiles;
+	}
+
 	public void printBag() {
 		for(Tile t : tiles) {
 			System.out.println(t.getLetter());
 		}
 	}
 	
+	/**
+	 * Gets a random tile from the Bag and removes it from the Bag object
+	 * @return The randomly selected tile
+	 */
+	public Tile getRandomTile() {
+		Random r = new Random();
+		int index = r.nextInt(tiles.size());
+		Tile t = tiles.get(index);
+		removeTile(t);
+		return t;
+	}
+	
+	/**
+	 * Removes the given tile from the Bag
+	 * @param t The tile to remove
+	 */
+	public void removeTile(Tile t) {
+		tiles.remove(t);
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Bag b = new Bag();
 		b.printBag();
+		System.out.println("Before removing, there are " + b.getTiles().size() + " tiles in the bag.");
+		Tile t = b.getRandomTile();
+		System.out.println("Removed a " + t.getLetter());
+		System.out.println("Now there are " + b.getTiles().size() + " remaining");
 	}
 
 }
