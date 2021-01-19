@@ -87,7 +87,7 @@ public class Board {
 		Square[][] copySquares = new Square[15][15];
 		for(int i = 0; i < board.length; i++) {
 			for(int j = 0; j < board[i].length; j++) {
-				copySquares[i][j] = board[i][j];
+				copySquares[i][j] = board[i][j].clone();
 			}
 		}
 		copy.setBoard(copySquares);

@@ -12,7 +12,17 @@ public class Square {
 		this.multiplier = multiplier;
 	}
 	
-	
+	/**
+	 * Creates a clone of the Square with the same multiplier and a copy of any Tile that may exist.
+	 */
+	public Square clone() {
+		Square copy = new Square(this.multiplier);
+		if(this.tile != null) {
+			Tile t = new Tile(this.tile.getLetter());
+			copy.setTile(t);
+		}
+		return copy;
+	}
 	
 	public Tile getTile() {
 		return tile;

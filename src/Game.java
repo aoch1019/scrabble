@@ -5,11 +5,13 @@ public class Game {
 	Bag bag;
 	ArrayList<Player> players;
 	Board board;
+	Board dynamicBoard;
 	int[][] integerRepresentationOfBoard;
 	Player yourMove;
 	
 	Game(String[] playerNames){
 		board = new Board();
+		dynamicBoard = board.clone();
 		bag = new Bag();
 		players = new ArrayList<Player>();
 		for(String name : playerNames) {
@@ -34,6 +36,10 @@ public class Game {
 		}
 		System.out.println("\nIt's " + yourMove.getName() + "'s turn\n");
 		System.out.println("\nThe bag has " + bag.tilesLeft() + " tiles remaining");
+	}
+	
+	void displayDynamicBoard() {
+		dynamicBoard.printBoardWithCoordinates();
 	}
 	
 	/**
@@ -65,7 +71,11 @@ public class Game {
 	}
 	
 	void makeAMove(Tile t, int row, int col) {
-		board.placeTile(t, row, col);
+		board = dynamicBoard.clone();
+	}
+	
+	void tryMove(Tile t, int row, int col) {
+		dynamicBoard.placeTile(t, row, col);
 	}
 	
 	public static void main(String[] args) {
@@ -75,8 +85,9 @@ public class Game {
 		g.displayGame();
 		g.setIntRepresentationOfBoard();
 		g.printIntegerRepresentation();
-		g.makeAMove(g.getPlayers().get(0).getTiles().get(0), 7, 7);
+		g.tryMove(g.getPlayers().get(0).getTiles().get(0), 7, 7);
 		g.displayGame();
+		g.displayDynamicBoard();
 		g.setIntRepresentationOfBoard();
 		g.printIntegerRepresentation();
 
