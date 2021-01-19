@@ -18,7 +18,9 @@ public class Square {
 		return tile;
 	}
 
-
+	public boolean hasTile() {
+		return tile != null;
+	}
 
 	public void setTile(Tile tile) {
 		this.tile = tile;
@@ -36,7 +38,7 @@ public class Square {
 	 */
 	public String getSquareString() {
 		if(this.tile != null) {
-			return tile.getLetter() + "";
+			return tile.getLetter() + " ";
 		}
 		else {
 			return getMultiplierString();

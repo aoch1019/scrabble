@@ -34,6 +34,14 @@ public class Board {
 		}
 	}
 	
+	public Square[][] getBoard() {
+		return board;
+	}
+
+	public void setBoard(Square[][] board) {
+		this.board = board;
+	}
+
 	public void printBoard() {
 		for(Square[] sqArr : board) {
 			for(Square sq : sqArr) {
@@ -74,10 +82,26 @@ public class Board {
 		}
 	}
 	
+	public Board clone() {
+		Board copy = new Board();
+		Square[][] copySquares = new Square[15][15];
+		for(int i = 0; i < board.length; i++) {
+			for(int j = 0; j < board[i].length; j++) {
+				copySquares[i][j] = board[i][j];
+			}
+		}
+		copy.setBoard(copySquares);
+		return copy;
+	}
+	
+	public void placeTile(Tile t, int row, int col) {
+		board[row][col].setTile(t);
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Board b = new Board();
-		b.printBoardWithCoordinates();
+		b.printBoard();
 	}
 
 }
