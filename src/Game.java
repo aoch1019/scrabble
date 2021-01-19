@@ -39,6 +39,7 @@ public class Game {
 	}
 	
 	void displayDynamicBoard() {
+		System.out.println("\n\n\nDisplaying the dynamic board...\n");
 		dynamicBoard.printBoardWithCoordinates();
 	}
 	
@@ -163,7 +164,6 @@ public class Game {
 		g.printValidLocations();
 		
 		g.tryMove(g.getPlayers().get(1).getTiles().get(0), 6, 7);
-		g.makeMove();
 		g.displayGame();
 		g.displayDynamicBoard();
 		g.printIntegerRepresentation();
